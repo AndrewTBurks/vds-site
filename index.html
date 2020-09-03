@@ -6,15 +6,16 @@
 
     <link
       rel="preload"
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Lora:wght@600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Lora:ital,wght@0,400;1,400;0,600;1,600;0,700;1,700&display=swap"
       as="style"
       crossorigin
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Lora:wght@600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Lora:ital,wght@0,400;1,400;0,600;1,600;0,700;1,700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/index.css" />
 
     <script src="./src/components/load.js" type="module"></script>
 
@@ -26,9 +27,21 @@
     <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
-    <header-bar> <span slot="title">About</span></header-bar>
+    <header-bar>About</header-bar>
 
-    <content-pane> Test </content-pane>
+    <content-pane>
+      <div class="image-wrapper">
+        <img id="me" src="./assets/me.jpg"></div>
+      </div>
+      <h1 style="color: var(--secondary-dark); font-style: italic">Hi, I'm Andrew!</h1>
+      <p>
+        I am a Ph.D. Candidate in the Computer Science department at the University of Illinois at Chicago. I am currently a Research Assistant at the Electronic Visualization Laboratory at UIC. I have experience working on research projects related to data visualization and the development of collaborative software for large/tiled displays.
+      </p>
+      <h3>Research Interests</h3>
+      <p>
+        Through my work, I have gained hands-on experience in two main areas: Data Visualization and Visual Analytics, and Human Computer Interaction. Broadly, I am interested in the role of visualization and "human-data" interfaces in analytical processes and workflows.
+      </p>
+    </content-pane>
 
     <script src="./src/main.js" type="module"></script>
   </body>

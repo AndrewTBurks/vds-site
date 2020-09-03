@@ -31,9 +31,9 @@ template.innerHTML = `
     background: var(--primary);
     color: white;
     padding: 0 20px;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
   
-    height: 64px;
+    height: 48px;
   
     display: flex;
     align-items: center;
@@ -47,14 +47,17 @@ template.innerHTML = `
 
     box-shadow: var(--el-2);
   }
-  
-  slot[name="title"] {
-    color: orange;
+
+  #title-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 400;
   }
   
-  slot[name="title"],
-  span {
-    margin-left: 4px;
+  #page-title {
+    font-style: italic;
+    color: var(--secondary-light);
+    font-weight: 700;
   }
   
   #links {
@@ -92,14 +95,17 @@ template.innerHTML = `
   }
 </style>
 
-Andrew Burks ~
-<span id="title">
-  <slot name="title">None</slot>
+<a id="title-link" href="./">
+Andrew Burks
+<span id="page-title">
+  - <slot></slot>
 </span>
+</a>
 <div id="links">
   <slot name="links">
     <a href="./">Home</a>
-    <a href="./vis">Visualization</a>
+    <a href="./vis">Vis</a>
+    <a href="./svg">SVG</a>
     <a href="./sources">Sources</a>
   </slot>
 </div>

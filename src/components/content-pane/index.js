@@ -32,6 +32,7 @@ template.innerHTML = `
     color: black;
     padding: 1.5rem;
     margin: 1.5rem;
+    border-radius: 1.5rem;
 
     display: flex;
     flex-flow: column;
