@@ -39,13 +39,14 @@
   opacity: 0;
 
   height: 24px;
-  padding: 4px 6px;
+  padding: 6px 10px;
   border-radius: 10px;
 
   color: white;
 
   background: var(--primary-dark);
-  content: "Tianjin - Jan 2019";
+  box-shadow: var(--el-3), 0 0 4px 2px var(--secondary);
+  content: "Tianjin ~ Jan 2019";
 
   transition: opacity 0.2s ease-out, transform 0.2s ease-out;
 }
