@@ -25,7 +25,7 @@ export default class Pane extends HTMLElement {
   }
 }
 
-template.innerHTML = `
+template.innerHTML = /* html */ `
 <style>
   :host {
     background: white;

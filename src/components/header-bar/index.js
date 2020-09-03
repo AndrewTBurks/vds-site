@@ -25,7 +25,7 @@ export default class HeaderBar extends HTMLElement {
   }
 }
 
-template.innerHTML = `
+template.innerHTML = /* html */ `
 <style>
   :host {
     background: var(--primary);
