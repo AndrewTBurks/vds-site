@@ -39,8 +39,8 @@ template.innerHTML = /* html */ `
   
     font-family: var(--font);
 
-    min-width: 800px;
-    max-width: 1vw;
+    width: 800px;
+    max-width: calc(100% - 1rem);
     box-shadow: var(--el-1);
   }
 </style>

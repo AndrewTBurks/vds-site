@@ -22,6 +22,13 @@ export default class HeaderBar extends HTMLElement {
         el.classList.toggle("selected", true);
       }
     });
+
+    fetch("./assets/hamburger-solid.svg")
+      .then((res) => res.text())
+      .then(
+        (svg) =>
+          (this.shadowRoot.querySelector("#links button svg").outerHTML = svg)
+      );
   }
 }
 
@@ -45,6 +52,8 @@ template.innerHTML = /* html */ `
     position: sticky;
     top: 0;
 
+    z-index: 10;
+
     box-shadow: var(--el-2);
   }
 
@@ -52,6 +61,8 @@ template.innerHTML = /* html */ `
     text-decoration: none;
     color: inherit;
     font-weight: 400;
+
+    min-width: 260px;
   }
   
   #page-title {
@@ -68,6 +79,15 @@ template.innerHTML = /* html */ `
     align-self: stretch;
   
     font-family: var(--font);
+    background: var(--primary);
+  }
+
+  #links button {
+    display: none;
+  }
+
+  #links button svg {
+    width: 100%;
   }
   
   #links a {
@@ -93,6 +113,60 @@ template.innerHTML = /* html */ `
   #links a.selected {
     border-bottom-color: var(--secondary);
   }
+
+  @media screen and (max-width: 600px) and (min-width: 0px) {
+    #links {
+      left: 0;
+      padding: 0;
+
+      top: 100%;
+      position: absolute;
+      width: calc(100%);
+      flex-direction: column;
+      align-items: stretch;
+
+      z-index: 100;
+      border-top: 2px solid var(--primary-dark);
+    }
+
+    #links a {
+      display: none;
+    }
+
+    #links:focus-within a {
+      display: inline-flex;
+    }
+
+    #links button {
+      display: inline-flex;
+      align-self: flex-end;
+      bottom: calc(100% + 8px);
+      right: 8px;
+      position: absolute;
+
+      height: 32px;
+      width: 32px;
+
+      border-radius: 4px;
+      padding: 4px;
+      align-items: center;
+      justify-content: center;
+
+      border: 2px solid var(--primary-light);
+      background: var(--primary);
+      color: var(--secondary-light);
+    }
+
+    #links a.selected {
+      border-bottom-color: var(--primary);
+      border-left-color: var(--secondary);
+    }
+
+    #links a:hover {
+      border-bottom-color: var(--primary);
+      border-bottom-color: var(--secondary-light);
+    }
+  }
 </style>
 
 <a id="title-link" href="./">
@@ -102,12 +176,14 @@ Andrew Burks
 </span>
 </a>
 <div id="links">
-  <slot name="links">
-    <a href="./">Home</a>
-    <a href="./vis">Vis</a>
-    <a href="./svg">SVG</a>
-    <a href="./sources">Sources</a>
-  </slot>
+  <button>
+  <!-- <img src="./assets/hamburger-solid.svg"></img> -->
+  <svg></svg>
+  </button>
+  <a href="./">Home</a>
+  <a href="./vis">Vis</a>
+  <a href="./svg">SVG</a>
+  <a href="./sources">Sources</a>
 </div>
 `;
 

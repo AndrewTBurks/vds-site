@@ -49,6 +49,8 @@
   content: "Tianjin ~ Jan 2019";
 
   transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+
+  white-space: pre;
 }
 
 .image-wrapper:hover::after {
