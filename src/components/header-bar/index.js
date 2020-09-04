@@ -8,24 +8,22 @@ export default class HeaderBar extends HTMLElement {
   }
 
   connectedCallback() {
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this.classList.add("hydrated");
+    $(this.shadowRoot).append(template.content.cloneNode(true));
+    $(this).addClass("hydrated");
 
-    this.shadowRoot.querySelectorAll("a").forEach((el) => {
-      const linkName = el.getAttribute("href").slice(1);
-
-      console.log(location.pathname, linkName);
-
+    $("a", this.shadowRoot).toggleClass(function () {
+      const linkName = $(this).attr("href").slice(1);
       if (location.pathname.endsWith(linkName)) {
-        el.classList.toggle("selected", true);
+        return "selected";
       }
+
+      return "";
     });
 
     fetch("./assets/hamburger-solid.svg")
       .then((res) => res.text())
       .then(
-        (svg) =>
-          (this.shadowRoot.querySelector("#links button svg").outerHTML = svg)
+        (svg) => ($("#links button svg", this.shadowRoot)[0].outerHTML = svg)
       );
   }
 }
@@ -56,17 +54,21 @@ template.innerHTML = /* html */ `
   }
 
   #title-link {
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
     color: inherit;
     font-weight: 400;
 
-    min-width: 260px;
+    min-width: 300px;
   }
   
   #page-title {
     font-style: italic;
     color: var(--secondary-light);
     font-weight: 700;
+
+    margin-left: 8px;
   }
   
   #links {
@@ -100,7 +102,7 @@ template.innerHTML = /* html */ `
     padding: 8px;
   
     border: 6px solid var(--primary);
-    border-bottom-color: var(--primary);
+    border-bottom-color: var(--primary-dark);
     transition: border-bottom-color 250ms ease-in-out;
   }
   
@@ -112,7 +114,7 @@ template.innerHTML = /* html */ `
     border-bottom-color: var(--secondary);
   }
 
-  @media screen and (max-width: 600px) and (min-width: 0px) {
+  @media screen and (max-width: 750px) and (min-width: 0px) {
     #links {
       left: 0;
       padding: 0;
@@ -124,11 +126,16 @@ template.innerHTML = /* html */ `
       align-items: stretch;
 
       z-index: 100;
-      border-top: 2px solid var(--primary-dark);
     }
 
     #links a {
       display: none;
+      border-left-color: var(--primary-dark);
+      border-bottom-color: var(--primary);
+    }
+
+    #links:focus-within {
+      border-top: 2px solid var(--primary-dark);
     }
 
     #links:focus-within a {
@@ -162,21 +169,19 @@ template.innerHTML = /* html */ `
 
     #links a:hover {
       border-bottom-color: var(--primary);
-      border-bottom-color: var(--secondary-light);
+      border-left-color: var(--secondary-light);
     }
   }
 </style>
 
 <a id="title-link" href="./">
+<img src="./android-chrome-512x512.png" style="height: 30px; margin: 0 8px;">
 Andrew Burks
-<span id="page-title">
-  - <slot></slot>
-</span>
+<span id="page-title"><slot></slot></span>
 </a>
 <div id="links">
   <button>
-  <!-- <img src="./assets/hamburger-solid.svg"></img> -->
-  <svg></svg>
+    <svg></svg>
   </button>
   <a href="./">Home</a>
   <a href="./vis">Vis</a>

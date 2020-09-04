@@ -16,7 +16,7 @@
 }
 
 #me:hover {
-  transform: scale(1.08);
+  transform: scale(1.05);
 
   box-shadow: var(--el-5);
 }

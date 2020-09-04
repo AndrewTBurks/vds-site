@@ -8,17 +8,24 @@ export default class Pane extends HTMLElement {
   }
 
   async connectedCallback() {
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this.classList.add("hydrated");
+    $(this.shadowRoot).append(template.content.cloneNode(true));
+    $(this).addClass("hydrated");
 
-    this.shadowRoot.querySelectorAll("a").forEach((el) => {
-      const linkName = el.getAttribute("href").slice(1);
-
-      console.log(location.pathname, linkName);
-
-      if (location.pathname.endsWith(linkName)) {
-        el.classList.toggle("selected", true);
-      }
+    // add ids to slotted headers 1 2 3 automatically
+    $("slot", this.shadowRoot).on("slotchange", function () {
+      $(this.assignedNodes())
+        .filter("h1, h2, h3")
+        .attr("id", function () {
+          console.log(this.innerHTML);
+          return $(this)
+            .text()
+            .toLowerCase()
+            .replace(/[^A-Za-z\d\s]/gm, "")
+            .replace(/\s/gm, "-");
+        })
+        .on("click", function () {
+          window.location.hash = this.id;
+        });
     });
   }
 }

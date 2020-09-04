@@ -56,8 +56,22 @@ h6 {
   line-height: 1.1;
 }
 
+content-pane h1,
+content-pane h2,
+content-pane h3 {
+  cursor: pointer;
+}
+
+content-pane h1:target,
+content-pane h2:target,
+content-pane h3:target {
+  text-decoration: underline;
+}
+
 h1 {
   font-family: var(--font-serif);
+  color: var(--secondary-dark);
+  font-style: italic;
   font-weight: 700;
   font-size: 2.25rem;
 }

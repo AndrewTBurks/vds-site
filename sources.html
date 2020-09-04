@@ -4,14 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="stylesheet" href="./css/base.css" />
+
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin />
 
-    <link rel="stylesheet" href="./css/base.css" />
+    <script src="./src/components/load.js" type="module" async="false"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"
+    ></script>
 
-    <script src="./src/components/load.js" type="module"></script>
-
-    <title>VDS Site - Sources</title>
+    <title>VDS Site - Andrew Burks</title>
 
     <link
       rel="apple-touch-icon"
@@ -22,7 +27,7 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./android-chrome-192x192.png"
+      href="./favicon-32x32.png"
     />
     <link
       rel="icon"
@@ -34,12 +39,83 @@
   </head>
   <body>
     <header-bar>Sources</header-bar>
-    <h3>favicon</h3>
-    <p>
-      downloaded from
-      <a href="https://favicon.io/emoji-favicons/smiling-face-with-sunglasses/"
-        >favicon.io</a
-      >
-    </p>
+    <content-pane>
+      <h1>Implementation</h1>
+
+      <p>
+        The source code for this site can be
+        <a href="https://github.com/AndrewTBurks/vds-site">found on Github</a>.
+      </p>
+
+      <h2>Web Components</h2>
+      <p>
+        The
+        <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components"
+          >Web Components standard</a
+        >
+        supported this site in encapsulating and reusing certain components and
+        their functionality. These components included the
+        <strong>Header Bar</strong> and the <strong>Content Pane</strong>. The
+        styles and markup for these components are encapsulated in their
+        respective files.
+      </p>
+
+      <h3>Header Bar</h3>
+      <p>
+        The Header Bar is loaded on every page (with a different title inserted)
+        and will automatically create the links and highlight the current page.
+        Additionally, the nav links will collapse on small screen sizes into a
+        dropdown menu.
+      </p>
+
+      <h3>Content Pane</h3>
+      <p>
+        The Conent Pane styles the main content of each page. Additionally it
+        automatically sets the ID of all headers (level 1, 2, and 3) to provide
+        links to within the page.
+      </p>
+      <h1>External Resources</h1>
+      <h2>Libraries</h2>
+      <h4>
+        jQuery
+        <a href="https://jquery.org/license/">LICENSE</a>
+      </h4>
+      <h2>Icons</h2>
+      <h4>
+        favicon
+        <a
+          href="https://github.com/twitter/twemoji/blob/master/LICENSE-GRAPHICS"
+          >LICENSE</a
+        >
+      </h4>
+      <p>
+        The site favicon was downloaded from
+        <a
+          href="https://favicon.io/emoji-favicons/smiling-face-with-sunglasses/"
+          >favicon.io</a
+        >
+        with the emoji sourced from
+        <a href="https://twemoji.twitter.com/">Twemoji</a>
+      </p>
+      <h4>
+        Font Awesome <a href="https://fontawesome.com/license">LICENSE</a>
+      </h4>
+      <p>
+        The Font Awesome hamburger icon for the nav menu was downloaded from
+        <a href="https://fontawesome.com/icons/hamburger?style=solid"
+          >fontawesome.com</a
+        >
+      </p>
+      <h2>Shadows</h2>
+      <p>
+        Box Shadow definitions for elevations similar to the Material Design
+        specification found
+        <a
+          href="https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d"
+        >
+          here
+        </a>
+      </p>
+    </content-pane>
   </body>
 </html>

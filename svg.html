@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/svg.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin />
+
+    <script src="./src/components/load.js" type="module" async="false"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"
+    ></script>
+
+    <title>VDS Site - Andrew Burks</title>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon-16x16.png"
+    />
+    <link rel="manifest" href="./site.webmanifest" />
+  </head>
+  <body>
+    <header-bar>SVG</header-bar>
+    <content-pane>
+      <h1>SVG Animations</h1>
+      <svg viewBox="0, 0, 500, 1000" id="animation">
+        <circle id="shape-1" cx="250" cy="150" />
+        <rect id="shape-2" x="-100" y="-100" width="200" height="200" rx="20" />
+        <rect id="shape-3" x="150" y="750" width="200" height="200" />
+      </svg>
+    </content-pane>
+
+    <script src="./src/svg.js" type="module"></script>
+  </body>
+</html>
