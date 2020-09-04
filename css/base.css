@@ -97,3 +97,12 @@ p {
   padding: 0;
   margin-bottom: 1.45rem;
 }
+
+header-bar,
+content-pane {
+  visibility: hidden;
+}
+
+.hydrated {
+  visibility: visible;
+}

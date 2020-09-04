@@ -5,13 +5,11 @@ export default class Pane extends HTMLElement {
     super();
 
     this.attachShadow({ mode: "open" });
-
-    console.log("Construct Pane");
   }
 
   async connectedCallback() {
-    console.log("Connected Pane");
     this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.classList.add("hydrated");
 
     this.shadowRoot.querySelectorAll("a").forEach((el) => {
       const linkName = el.getAttribute("href").slice(1);
