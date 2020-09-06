@@ -20,6 +20,15 @@ body {
   align-items: center;
 }
 
+body::after {
+  content: "© Andrew Burks 2020";
+  margin-bottom: 10px;
+  font-family: var(--font-serif);
+
+  font-weight: 600;
+  font-style: italic;
+}
+
 :root {
   --font-serif: "Lora", serif;
   --font: "IBM Plex Sans", sans-serif;

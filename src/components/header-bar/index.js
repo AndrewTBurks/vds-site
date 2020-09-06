@@ -33,7 +33,6 @@ template.innerHTML = /* html */ `
   :host {
     background: var(--primary);
     color: white;
-    padding: 0 20px;
     font-size: 1.3rem;
   
     height: 48px;
@@ -61,6 +60,16 @@ template.innerHTML = /* html */ `
     font-weight: 400;
 
     min-width: 300px;
+  }
+
+  #title-link img {
+    animation: 1.5s linear infinite wiggle;
+    animation-play-state: paused;
+  }
+
+  #title-link:hover img {
+
+    animation-play-state: running;
   }
   
   #page-title {
@@ -172,10 +181,20 @@ template.innerHTML = /* html */ `
       border-left-color: var(--secondary-light);
     }
   }
+
+  @keyframes wiggle {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
 </style>
 
 <a id="title-link" href="./">
-<img src="./android-chrome-512x512.png" style="height: 30px; margin: 0 8px;">
+<img src="./assets/sunglasses.svg" style="height: 30px; margin: 0 8px;">
 Andrew Burks
 <span id="page-title"><slot></slot></span>
 </a>

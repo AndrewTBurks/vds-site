@@ -19,6 +19,7 @@ export default class Pane extends HTMLElement {
           console.log(this.innerHTML);
           return $(this)
             .text()
+            .trim()
             .toLowerCase()
             .replace(/[^A-Za-z\d\s]/gm, "")
             .replace(/\s/gm, "-");
