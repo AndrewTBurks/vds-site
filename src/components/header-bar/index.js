@@ -206,6 +206,7 @@ Andrew Burks
   <a href="./vis">Vis</a>
   <a href="./svg">SVG</a>
   <a href="./sources">Sources</a>
+  <a href="https://sgd.andrewtburks.dev">SGD</a>
 </div>
 `;
 
